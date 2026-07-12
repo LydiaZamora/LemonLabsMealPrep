@@ -1,0 +1,22 @@
+@model UserProfile
+@{
+    ViewData["Title"] = "Profile Details";
+}
+
+<h1>@Model.Name</h1>
+<dl class="row">
+    <dt class="col-sm-2">Email</dt>
+    <dd class="col-sm-10">@Model.Email</dd>
+    <dt class="col-sm-2">Diet</dt>
+    <dd class="col-sm-10">@Model.DietType</dd>
+    <dt class="col-sm-2">Allergies</dt>
+    <dd class="col-sm-10">@Model.Allergies</dd>
+    <dt class="col-sm-2">Daily Calorie Goal</dt>
+    <dd class="col-sm-10">@Model.DailyCalorieGoal</dd>
+    <dt class="col-sm-2">Weekly Budget</dt>
+    <dd class="col-sm-10">@Model.WeeklyBudget.ToString("C")</dd>
+</dl>
+
+<a asp-controller="MealPlan" asp-action="Index" asp-route-userProfileId="@Model.Id" class="btn btn-success">Generate Meal Plan</a>
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+<a asp-action="Index">Back to List</a>

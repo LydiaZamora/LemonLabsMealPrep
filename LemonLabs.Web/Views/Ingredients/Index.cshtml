@@ -1,0 +1,35 @@
+@model List<Ingredient>
+@{
+    ViewData["Title"] = "Ingredients";
+}
+
+<h1>Ingredients</h1>
+<p><a asp-action="Create" class="btn btn-primary">Add New Ingredient</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Organic</th>
+            <th>Seasonal Availability</th>
+            <th>Farm</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ingredient in Model)
+        {
+            <tr>
+                <td>@ingredient.Name</td>
+                <td>@(ingredient.IsOrganic ? "Yes" : "No")</td>
+                <td>@ingredient.SeasonalAvailability</td>
+                <td>@ingredient.Farm?.Name</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@ingredient.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@ingredient.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@ingredient.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

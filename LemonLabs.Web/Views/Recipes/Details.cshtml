@@ -1,0 +1,31 @@
+@model Recipe
+@{
+    ViewData["Title"] = "Recipe Details";
+}
+
+<h1>@Model.Name</h1>
+<dl class="row">
+    <dt class="col-sm-2">Description</dt>
+    <dd class="col-sm-10">@Model.Description</dd>
+    <dt class="col-sm-2">Diet</dt>
+    <dd class="col-sm-10">@Model.DietType</dd>
+    <dt class="col-sm-2">Category</dt>
+    <dd class="col-sm-10">@Model.Category</dd>
+    <dt class="col-sm-2">Calories</dt>
+    <dd class="col-sm-10">@Model.Calories</dd>
+    <dt class="col-sm-2">Price / Serving</dt>
+    <dd class="col-sm-10">@Model.PricePerServing.ToString("C")</dd>
+    <dt class="col-sm-2">Allergens</dt>
+    <dd class="col-sm-10">@Model.Allergens</dd>
+</dl>
+
+<h3>Ingredients</h3>
+<ul>
+    @foreach (var ri in Model.RecipeIngredients)
+    {
+        <li>@ri.Quantity @ri.Ingredient?.Name</li>
+    }
+</ul>
+
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+<a asp-action="Index">Back to List</a>

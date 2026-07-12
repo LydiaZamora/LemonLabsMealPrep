@@ -1,0 +1,33 @@
+@model List<Farm>
+@{
+    ViewData["Title"] = "Farms";
+}
+
+<h1>Local Farms</h1>
+<p><a asp-action="Create" class="btn btn-primary">Add New Farm</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Ingredients Supplied</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var farm in Model)
+        {
+            <tr>
+                <td>@farm.Name</td>
+                <td>@farm.Location</td>
+                <td>@farm.Ingredients.Count</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@farm.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@farm.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@farm.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

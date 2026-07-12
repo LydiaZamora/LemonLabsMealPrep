@@ -1,0 +1,35 @@
+@model List<Chef>
+@{
+    ViewData["Title"] = "Chefs";
+}
+
+<h1>Local Chefs</h1>
+<p><a asp-action="Create" class="btn btn-primary">Add New Chef</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Years Experience</th>
+            <th>Hourly Rate</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var chef in Model)
+        {
+            <tr>
+                <td>@chef.Name</td>
+                <td>@chef.Specialty</td>
+                <td>@chef.YearsExperience</td>
+                <td>@chef.HourlyRate.ToString("C")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@chef.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@chef.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@chef.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

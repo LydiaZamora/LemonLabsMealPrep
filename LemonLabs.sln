@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemonLabs.Web", "LemonLabs.Web\LemonLabs.Web.csproj", "{540D325C-83CE-4726-BBF2-A57A8F3E1697}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemonLabs.Tests", "LemonLabs.Tests\LemonLabs.Tests.csproj", "{CC0A678F-82EC-4847-9B8D-5A92728DB0DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{540D325C-83CE-4726-BBF2-A57A8F3E1697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{540D325C-83CE-4726-BBF2-A57A8F3E1697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{540D325C-83CE-4726-BBF2-A57A8F3E1697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{540D325C-83CE-4726-BBF2-A57A8F3E1697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC0A678F-82EC-4847-9B8D-5A92728DB0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC0A678F-82EC-4847-9B8D-5A92728DB0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC0A678F-82EC-4847-9B8D-5A92728DB0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC0A678F-82EC-4847-9B8D-5A92728DB0DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

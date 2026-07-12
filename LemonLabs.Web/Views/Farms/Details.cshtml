@@ -1,0 +1,23 @@
+@model Farm
+@{
+    ViewData["Title"] = "Farm Details";
+}
+
+<h1>@Model.Name</h1>
+<dl class="row">
+    <dt class="col-sm-2">Location</dt>
+    <dd class="col-sm-10">@Model.Location</dd>
+    <dt class="col-sm-2">Description</dt>
+    <dd class="col-sm-10">@Model.Description</dd>
+</dl>
+
+<h3>Ingredients Supplied</h3>
+<ul>
+    @foreach (var ingredient in Model.Ingredients)
+    {
+        <li>@ingredient.Name @(ingredient.IsOrganic ? "(Organic)" : "")</li>
+    }
+</ul>
+
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+<a asp-action="Index">Back to List</a>

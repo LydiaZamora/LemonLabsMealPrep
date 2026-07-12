@@ -1,0 +1,35 @@
+@model List<UserProfile>
+@{
+    ViewData["Title"] = "Profiles";
+}
+
+<h1>User Profiles</h1>
+<p><a asp-action="Create" class="btn btn-primary">Add New Profile</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Diet</th>
+            <th>Calorie Goal</th>
+            <th>Weekly Budget</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var profile in Model)
+        {
+            <tr>
+                <td>@profile.Name</td>
+                <td>@profile.DietType</td>
+                <td>@profile.DailyCalorieGoal</td>
+                <td>@profile.WeeklyBudget.ToString("C")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@profile.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@profile.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@profile.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

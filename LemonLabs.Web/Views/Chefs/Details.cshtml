@@ -1,0 +1,19 @@
+@model Chef
+@{
+    ViewData["Title"] = "Chef Details";
+}
+
+<h1>@Model.Name</h1>
+<dl class="row">
+    <dt class="col-sm-2">Bio</dt>
+    <dd class="col-sm-10">@Model.Bio</dd>
+    <dt class="col-sm-2">Specialty</dt>
+    <dd class="col-sm-10">@Model.Specialty</dd>
+    <dt class="col-sm-2">Years Experience</dt>
+    <dd class="col-sm-10">@Model.YearsExperience</dd>
+    <dt class="col-sm-2">Hourly Rate</dt>
+    <dd class="col-sm-10">@Model.HourlyRate.ToString("C")</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+<a asp-action="Index">Back to List</a>

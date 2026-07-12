@@ -1,0 +1,52 @@
+@using LemonLabs.Web.Services
+@model MealPlanResult
+@{
+    ViewData["Title"] = "Generate Meal Plan";
+}
+
+<h1>Generate a Daily Meal Plan</h1>
+<p>Pick a profile to generate a diet-matched, allergy-safe, budget-aware daily meal plan sourced from local-farm ingredients.</p>
+
+<form asp-action="Index" method="get" class="d-flex gap-2 mb-4">
+    <select name="userProfileId" class="form-control" asp-items="ViewBag.UserProfileId">
+        <option value="">-- Select a Profile --</option>
+    </select>
+    <button type="submit" class="btn btn-success">Generate</button>
+</form>
+
+@if (ViewBag.Profile != null)
+{
+    var profile = (UserProfile)ViewBag.Profile;
+    <h3>Plan for @profile.Name (@profile.DietType)</h3>
+
+    @if (Model == null || Model.Meals.Count == 0)
+    {
+        <div class="alert alert-warning">No compatible recipes found for this profile's diet, allergies, and budget.</div>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Recipe</th>
+                    <th>Calories</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var meal in Model.Meals)
+                {
+                    <tr>
+                        <td>@meal.Category</td>
+                        <td>@meal.Name</td>
+                        <td>@meal.Calories</td>
+                        <td>@meal.PricePerServing.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p><strong>Total Calories:</strong> @Model.TotalCalories / @profile.DailyCalorieGoal goal</p>
+        <p><strong>Total Cost:</strong> @Model.TotalCost.ToString("C") (daily budget: @((profile.WeeklyBudget / 7m).ToString("C")))</p>
+    }
+}

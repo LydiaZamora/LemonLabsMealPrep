@@ -1,0 +1,33 @@
+@model Ingredient
+@{
+    ViewData["Title"] = "Add Ingredient";
+}
+
+<h1>Add New Ingredient</h1>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group mb-3">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group form-check mb-3">
+        <input asp-for="IsOrganic" class="form-check-input" />
+        <label asp-for="IsOrganic" class="form-check-label"></label>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="SeasonalAvailability" class="control-label"></label>
+        <input asp-for="SeasonalAvailability" class="form-control" />
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="FarmId" class="control-label">Farm</label>
+        <select asp-for="FarmId" class="form-control" asp-items="ViewBag.FarmId"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

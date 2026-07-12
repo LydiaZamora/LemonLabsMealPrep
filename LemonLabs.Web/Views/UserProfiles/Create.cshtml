@@ -1,0 +1,44 @@
+@model UserProfile
+@{
+    ViewData["Title"] = "Add Profile";
+}
+
+<h1>Add New Profile</h1>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group mb-3">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="DietType" class="control-label"></label>
+        <select asp-for="DietType" class="form-control" asp-items="Html.GetEnumSelectList<DietType>()"></select>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Allergies" class="control-label">Allergies (comma separated)</label>
+        <input asp-for="Allergies" class="form-control" />
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="DailyCalorieGoal" class="control-label"></label>
+        <input asp-for="DailyCalorieGoal" class="form-control" />
+        <span asp-validation-for="DailyCalorieGoal" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="WeeklyBudget" class="control-label"></label>
+        <input asp-for="WeeklyBudget" class="form-control" />
+        <span asp-validation-for="WeeklyBudget" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

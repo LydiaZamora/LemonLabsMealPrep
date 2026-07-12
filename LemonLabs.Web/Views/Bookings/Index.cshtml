@@ -1,0 +1,35 @@
+@model List<Booking>
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<h1>Chef Bookings</h1>
+<p><a asp-action="Create" class="btn btn-primary">Add New Booking</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Chef</th>
+            <th>Requested Date</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.UserProfile?.Name</td>
+                <td>@booking.Chef?.Name</td>
+                <td>@booking.RequestedDate.ToShortDateString()</td>
+                <td>@booking.Status</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@booking.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@booking.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@booking.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
