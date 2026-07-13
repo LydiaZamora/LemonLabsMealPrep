@@ -11,13 +11,13 @@
     <select name="userProfileId" class="form-control" asp-items="ViewBag.UserProfileId">
         <option value="">-- Select a Profile --</option>
     </select>
-    <button type="submit" class="btn btn-success">Generate</button>
+    <button type="submit" class="btn btn-primary">Generate</button>
 </form>
 
 @if (ViewBag.Profile != null)
 {
     var profile = (UserProfile)ViewBag.Profile;
-    <h3>Plan for @profile.Name (@profile.DietType)</h3>
+    <h3>Plan for @profile.Name <span class="badge-diet">@profile.DietType</span></h3>
 
     @if (Model == null || Model.Meals.Count == 0)
     {

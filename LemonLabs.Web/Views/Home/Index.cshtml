@@ -2,14 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Lemon Labs</h1>
+<div class="lemon-hero">
+    <img src="~/images/lemon-mark.svg" alt="Lemon Labs" class="lemon-hero-mark" />
+    <h1>Lemon Labs</h1>
     <p class="lead">Personalized meal plans and local chef connections, sourced from local farms.</p>
     <p>
         Tell us your diet, allergies, calorie goals and budget, and we'll generate a meal plan
         from recipes built on locally-sourced ingredients &mdash; or connect you with a chef who
         specializes in your diet.
     </p>
-    <a asp-controller="MealPlan" asp-action="Index" class="btn btn-success me-2">Generate a Meal Plan</a>
-    <a asp-controller="Chefs" asp-action="Index" class="btn btn-outline-secondary">Browse Local Chefs</a>
+    <a asp-controller="MealPlan" asp-action="Index" class="btn btn-primary me-2">Generate a Meal Plan</a>
+    <a asp-controller="Chefs" asp-action="Index" class="btn btn-secondary">Browse Local Chefs</a>
 </div>

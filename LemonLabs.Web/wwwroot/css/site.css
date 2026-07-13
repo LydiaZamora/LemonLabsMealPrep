@@ -9,7 +9,7 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #3F6B3B;
 }
 
 html {
@@ -17,6 +17,214 @@ html {
   min-height: 100%;
 }
 
+:root {
+  --lemon-primary: #F7D547;
+  --lemon-primary-dark: #E0BE2F;
+  --lemon-secondary: #A8C686;
+  --lemon-secondary-dark: #8FAF6C;
+  --lemon-background: #FCFAF5;
+  --lemon-card: #FFFFFF;
+  --lemon-foreground: #2B241E;
+  --lemon-muted: #7A7268;
+  --lemon-border: #E9E3D4;
+  --lemon-chip: #F3EFDD;
+  --lemon-destructive: #C1462B;
+  --font-heading: "Quattrocento", Georgia, serif;
+  --font-body: "Futura", "Century Gothic", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 body {
   margin-bottom: 60px;
+  background-color: var(--lemon-background);
+  color: var(--lemon-foreground);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--lemon-foreground);
+  font-weight: 600;
+}
+
+a {
+  color: var(--lemon-secondary);
+}
+
+a:hover {
+  color: var(--lemon-secondary-dark);
+}
+
+/* Navbar */
+.lemon-navbar {
+  background-color: var(--lemon-background);
+  border-bottom: 1px solid var(--lemon-border);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.lemon-brand {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--lemon-foreground) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lemon-brand-mark {
+  width: 22px;
+  height: 26px;
+}
+
+.lemon-navbar .nav-link {
+  color: var(--lemon-muted) !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.lemon-navbar .nav-link:hover {
+  color: var(--lemon-secondary) !important;
+}
+
+/* Footer */
+.lemon-footer {
+  border-top: 1px solid var(--lemon-border);
+  color: var(--lemon-muted);
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--lemon-primary);
+  border-color: var(--lemon-primary);
+  color: var(--lemon-foreground);
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--lemon-primary-dark);
+  border-color: var(--lemon-primary-dark);
+  color: var(--lemon-foreground);
+}
+
+.btn-success {
+  background-color: var(--lemon-secondary);
+  border-color: var(--lemon-secondary);
+  color: var(--lemon-foreground);
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+}
+
+.btn-success:hover, .btn-success:focus {
+  background-color: var(--lemon-secondary-dark);
+  border-color: var(--lemon-secondary-dark);
+  color: var(--lemon-foreground);
+}
+
+.btn-secondary, .btn-outline-secondary {
+  background-color: var(--lemon-background);
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  border-color: var(--lemon-border);
+  color: var(--lemon-foreground);
+}
+
+.btn-secondary:hover, .btn-outline-secondary:hover {
+  background-color: var(--lemon-chip);
+  border-color: var(--lemon-border);
+  color: var(--lemon-foreground);
+}
+
+.btn-danger {
+  background-color: var(--lemon-destructive);
+  border-color: var(--lemon-destructive);
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+}
+
+/* Cards & tables */
+.table {
+  background-color: var(--lemon-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(34, 40, 28, 0.06);
+}
+
+.table thead th {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--lemon-muted);
+  border-bottom: 1px solid var(--lemon-border);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.table td, .table th {
+  border-color: var(--lemon-border);
+  vertical-align: middle;
+}
+
+/* Forms */
+.form-control, .form-select {
+  border-color: var(--lemon-border);
+  border-radius: 8px;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--lemon-secondary);
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--lemon-foreground);
+}
+
+/* Hero (Home page) */
+.lemon-hero {
+  background-color: var(--lemon-chip);
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.lemon-hero-mark {
+  width: 56px;
+  height: 66px;
+  margin-bottom: 0.5rem;
+}
+
+.lemon-hero h1 {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+}
+
+.lemon-hero p.lead {
+  color: var(--lemon-muted);
+  max-width: 640px;
+  margin: 0 auto 1rem;
+}
+
+.lemon-hero p {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Badges */
+.badge-diet {
+  background-color: var(--lemon-chip);
+  color: var(--lemon-secondary);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.8rem;
 }
