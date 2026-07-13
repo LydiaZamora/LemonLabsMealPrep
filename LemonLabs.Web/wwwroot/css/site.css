@@ -9,7 +9,9 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #3F6B3B;
+  box-shadow: none;
+  outline: 1px solid var(--lemon-foreground);
+  outline-offset: 1px;
 }
 
 html {
@@ -18,17 +20,17 @@ html {
 }
 
 :root {
-  --lemon-primary: #F7D547;
-  --lemon-primary-dark: #E0BE2F;
-  --lemon-secondary: #A8C686;
-  --lemon-secondary-dark: #8FAF6C;
+  --lemon-primary: #C9A227;
+  --lemon-primary-soft: #F7D547;
+  --lemon-secondary: #6B7F52;
+  --lemon-secondary-soft: #A8C686;
   --lemon-background: #FCFAF5;
-  --lemon-card: #FFFFFF;
+  --lemon-card: #FCFAF5;
   --lemon-foreground: #2B241E;
-  --lemon-muted: #7A7268;
-  --lemon-border: #E9E3D4;
-  --lemon-chip: #F3EFDD;
-  --lemon-destructive: #C1462B;
+  --lemon-muted: #8C8377;
+  --lemon-border: #DED8C8;
+  --lemon-chip: #F5F2E8;
+  --lemon-destructive: #A8462F;
   --font-heading: "Quattrocento", Georgia, serif;
   --font-body: "Futura", "Century Gothic", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -38,53 +40,62 @@ body {
   background-color: var(--lemon-background);
   color: var(--lemon-foreground);
   font-family: var(--font-body);
+  font-size: 0.95rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--lemon-foreground);
-  font-weight: 600;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 a {
-  color: var(--lemon-secondary);
+  color: var(--lemon-foreground);
+  text-decoration-color: var(--lemon-border);
+  text-underline-offset: 3px;
 }
 
 a:hover {
-  color: var(--lemon-secondary-dark);
+  color: var(--lemon-primary);
+  text-decoration-color: var(--lemon-primary);
 }
 
 /* Navbar */
 .lemon-navbar {
   background-color: var(--lemon-background);
   border-bottom: 1px solid var(--lemon-border);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .lemon-brand {
   font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 1.35rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
   color: var(--lemon-foreground) !important;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  text-decoration: none;
 }
 
 .lemon-brand-mark {
-  width: 22px;
-  height: 26px;
+  width: 16px;
+  height: 19px;
 }
 
 .lemon-navbar .nav-link {
   color: var(--lemon-muted) !important;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .lemon-navbar .nav-link:hover {
-  color: var(--lemon-secondary) !important;
+  color: var(--lemon-foreground) !important;
 }
 
 /* Footer */
@@ -92,79 +103,87 @@ a:hover {
   border-top: 1px solid var(--lemon-border);
   color: var(--lemon-muted);
   padding: 1.5rem 0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.lemon-footer a {
+  color: var(--lemon-muted);
 }
 
 /* Buttons */
+.btn {
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
 .btn-primary {
-  background-color: var(--lemon-primary);
-  border-color: var(--lemon-primary);
-  color: var(--lemon-foreground);
-  font-weight: 600;
-  border-radius: 999px;
-  padding: 0.5rem 1.25rem;
+  background-color: var(--lemon-foreground);
+  border-color: var(--lemon-foreground);
+  color: var(--lemon-background);
+  padding: 0.55rem 1.5rem;
 }
 
 .btn-primary:hover, .btn-primary:focus {
-  background-color: var(--lemon-primary-dark);
-  border-color: var(--lemon-primary-dark);
+  background-color: var(--lemon-primary);
+  border-color: var(--lemon-primary);
   color: var(--lemon-foreground);
 }
 
 .btn-success {
-  background-color: var(--lemon-secondary);
-  border-color: var(--lemon-secondary);
+  background-color: transparent;
+  border: 1px solid var(--lemon-foreground);
   color: var(--lemon-foreground);
-  border-radius: 999px;
-  padding: 0.5rem 1.25rem;
-  font-weight: 600;
+  padding: 0.55rem 1.5rem;
 }
 
 .btn-success:hover, .btn-success:focus {
-  background-color: var(--lemon-secondary-dark);
-  border-color: var(--lemon-secondary-dark);
-  color: var(--lemon-foreground);
+  background-color: var(--lemon-foreground);
+  border-color: var(--lemon-foreground);
+  color: var(--lemon-background);
 }
 
 .btn-secondary, .btn-outline-secondary {
-  background-color: var(--lemon-background);
-  border-radius: 999px;
-  padding: 0.5rem 1.25rem;
-  font-weight: 600;
+  background-color: transparent;
+  padding: 0.55rem 1.5rem;
   border-color: var(--lemon-border);
-  color: var(--lemon-foreground);
+  color: var(--lemon-muted);
 }
 
 .btn-secondary:hover, .btn-outline-secondary:hover {
-  background-color: var(--lemon-chip);
-  border-color: var(--lemon-border);
+  border-color: var(--lemon-foreground);
   color: var(--lemon-foreground);
 }
 
 .btn-danger {
+  background-color: transparent;
+  border: 1px solid var(--lemon-destructive);
+  color: var(--lemon-destructive);
+  padding: 0.55rem 1.5rem;
+}
+
+.btn-danger:hover {
   background-color: var(--lemon-destructive);
-  border-color: var(--lemon-destructive);
-  border-radius: 999px;
-  padding: 0.5rem 1.25rem;
-  font-weight: 600;
+  color: var(--lemon-background);
 }
 
 /* Cards & tables */
 .table {
-  background-color: var(--lemon-card);
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(34, 40, 28, 0.06);
+  background-color: transparent;
+  border-top: 1px solid var(--lemon-foreground);
 }
 
 .table thead th {
   font-family: var(--font-body);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--lemon-muted);
   border-bottom: 1px solid var(--lemon-border);
   text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 0.03em;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  padding-top: 1rem;
+  padding-bottom: 0.75rem;
 }
 
 .table td, .table th {
@@ -172,59 +191,77 @@ a:hover {
   vertical-align: middle;
 }
 
+.table tbody tr:last-child td {
+  border-bottom: 1px solid var(--lemon-foreground);
+}
+
 /* Forms */
 .form-control, .form-select {
   border-color: var(--lemon-border);
-  border-radius: 8px;
+  border-radius: 2px;
+  background-color: transparent;
 }
 
 .form-control:focus, .form-select:focus {
-  border-color: var(--lemon-secondary);
+  border-color: var(--lemon-foreground);
+  box-shadow: none;
 }
 
 label {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--lemon-foreground);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--lemon-muted);
 }
 
 /* Hero (Home page) */
 .lemon-hero {
-  background-color: var(--lemon-chip);
-  border-radius: 20px;
-  padding: 4rem 2rem;
   text-align: center;
+  padding: 5rem 1rem 4.5rem;
+  border-top: 1px solid var(--lemon-border);
+  border-bottom: 1px solid var(--lemon-border);
 }
 
 .lemon-hero-mark {
-  width: 56px;
-  height: 66px;
-  margin-bottom: 0.5rem;
+  width: 34px;
+  height: 40px;
+  margin-bottom: 1.5rem;
 }
 
 .lemon-hero h1 {
-  font-size: 2.75rem;
-  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.5rem;
 }
 
 .lemon-hero p.lead {
   color: var(--lemon-muted);
-  max-width: 640px;
-  margin: 0 auto 1rem;
+  max-width: 560px;
+  margin: 0 auto 1.5rem;
+  font-size: 1rem;
 }
 
 .lemon-hero p {
-  max-width: 640px;
+  max-width: 560px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.7;
+}
+
+.lemon-hero p + p {
+  margin-bottom: 2.5rem;
 }
 
 /* Badges */
 .badge-diet {
-  background-color: var(--lemon-chip);
-  color: var(--lemon-secondary);
-  border-radius: 999px;
-  padding: 0.35rem 0.75rem;
-  font-weight: 600;
-  font-size: 0.8rem;
+  background-color: transparent;
+  color: var(--lemon-muted);
+  border: 1px solid var(--lemon-border);
+  border-radius: 2px;
+  padding: 0.2rem 0.6rem;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
