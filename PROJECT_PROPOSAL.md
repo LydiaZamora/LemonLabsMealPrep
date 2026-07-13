@@ -44,20 +44,24 @@ The UI uses Bootstrap for a clean, responsive layout consistent across all entit
 
 ## Testing Plan
 
-The test project (`LemonLabs.Tests`) contains 21 xUnit test cases across two layers:
+- **Unit testing for backend logic using xUnit:** 21 test cases in `LemonLabs.Tests` cover the `MealPlanService` matching algorithm — diet-compatibility filtering, allergen exclusion, calorie and budget ceilings, diet-hierarchy behavior (e.g., vegetarians can receive vegan recipes), null-argument handling, and empty-result behavior when no recipes match.
+- **Repository-layer testing:** `FarmRepositoryTests`, `RecipeRepositoryTests`, and `UserProfileRepositoryTests` verify create, read, update, delete, and existence-check behavior against EF Core's in-memory provider, each isolated with its own database instance.
+- **Manual end-to-end verification:** key user flows (creating a profile, generating a meal plan, booking a chef, full CRUD on every entity) were manually tested in a browser during development, including form validation and foreign-key relationships.
+- **Not included in this version:** no automated integration test suite and no formal user acceptance testing with outside users — both are realistic next steps but outside the scope of this submission.
 
-- **Service-layer tests** (`MealPlanServiceTests`) verify the meal-plan matching algorithm in isolation: diet-compatibility filtering, allergen exclusion, calorie and budget ceilings, diet-hierarchy behavior (e.g., vegetarians can receive vegan recipes), null-argument handling, and empty-result behavior when no recipes match.
-- **Repository-layer tests** (`FarmRepositoryTests`, `RecipeRepositoryTests`, `UserProfileRepositoryTests`) verify create, read, update, delete, and existence-check behavior against EF Core's in-memory database provider, isolated per test with a unique database instance.
-
-All tests pass with `dotnet test`, and the full solution builds with zero warnings and zero errors.
+All 21 automated tests pass with `dotnet test`, and the full solution builds with zero warnings and zero errors.
 
 ## Deployment
 
-The application is designed for straightforward deployment to any environment supporting .NET 7 and SQLite (or, for a hosted deployment, Azure App Service with EF Core's provider swapped to SQL Server/Azure SQL). EF Core migrations run automatically at startup (`db.Database.Migrate()`), so a fresh deployment only requires the app and its connection string.
+- **Current state:** the app runs locally via `dotnet run` against a file-based SQLite database; it has not been deployed to a public host for this submission.
+- **Server requirements:** any environment with the .NET 7 runtime; EF Core migrations apply automatically at startup, so no manual database setup is needed.
+- **Path to production hosting:** deploying to Azure App Service would mean swapping the EF Core provider from SQLite to SQL Server/Azure SQL and setting the connection string via app configuration — no other code changes required.
+- **Scalability considerations:** not applicable at the current student-project scale; the repository/service layering would support adding caching or read replicas later without touching controllers or views.
 
 ## Expected Outcome
 
-A fully functional meal-prepping web application where a user can create a profile, generate a personalized daily meal plan sourced from local farms, and book a chef matching their diet — backed by a tested, full-CRUD data layer.
+- A fully functional meal-prepping web application, runnable locally, where a user can create a profile, generate a personalized daily meal plan sourced from local farms, and book a chef matching their diet.
+- **Success criteria:** full CRUD across all six entities with no errors, a working diet/allergy/budget-matching algorithm, and a passing automated test suite (21/21) — all of which are met as of this submission.
 
 ## Conclusion
 
